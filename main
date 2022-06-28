@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class main {
+
+	public static void main(String[] args) {
+		Scanner valor = new Scanner (System.in);
+		int x, y, z;
+		
+		/* 
+		  X + Y * Z
+		  <EXPRESSÃO> + <TERMO>
+		  <termo>    <expressao>  *  const
+		  const   const   z
+		  x         y
+		
+		*/
+		System.out.print("insira os valores para X Y Z respectivamente de forma que (X+Y*Z)");
+		x = valor.nextInt();
+		y = valor.nextInt();
+		z = valor.nextInt();
+		
+		Const Cx = new Const(x);
+		Const Cy = new Const(y);
+		Const Cz = new Const(z);
+		
+		Termo Tx = new Termo(Cx);
+		Termo Ty = new Termo(Cy);
+		Termo TcTz = new Termo(Cy,Cz);
+		
+		Expressao Ex = new Expressao(Tx);
+		
+				
+
+		ExpressaoAbstrata e = new Expressao(Ex,TcTz);
+		System.out.println (e.interpret() );
+
+	}
+
+}
